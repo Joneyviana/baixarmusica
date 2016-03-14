@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'handlebars_assets'
-gem 'hamlbars'
+
 group :development, :test do
   gem 'byebug'
 end
