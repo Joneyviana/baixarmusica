@@ -18,7 +18,7 @@ development:
   encoding: unicode
   database: Tube_development
   pool:     5
-  username: MyCrawler
+  username: postgres
   password: 12as34df
   template: template0
 
@@ -46,7 +46,7 @@ test:
   encoding: unicode
   database: Tube_test
   pool:     5
-  username: MyCrawler
+  username: postgres
   password: 12as34df
   template: template0
 
@@ -56,6 +56,6 @@ production:
   encoding: unicode
   database: Tube_production
   pool:     5
-  username: MyCrawler
+  username: postgres
   password: 12as34df
   template: template0

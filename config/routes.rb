@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+
+  get "/search", to: "videos#search"
+  get "/download", to: "videos#download"
+
+  root to: "videos#index"
 end

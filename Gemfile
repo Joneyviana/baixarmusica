@@ -7,6 +7,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'handlebars_assets'
+gem 'hamlbars'
 group :development, :test do
   gem 'byebug'
 end
@@ -16,6 +18,11 @@ group :development do
 end
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'poltergeist'
+gem 'phantomjs', :require => 'phantomjs/poltergeist'
+gem 'yourub'
+gem 'google-api-client', '~> 0.7.1'
+gem 'capybara'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
@@ -35,7 +42,7 @@ group :production do
   gem 'rails_12factor'
 end
 group :test do
-  gem 'capybara'
+  gem 'simplecov'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'

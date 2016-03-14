@@ -1,0 +1,12 @@
+
+
+- @videos.each do |video|
+
+    .container-element
+        image_tag(video.image)
+        .container-description
+            = video.title
+            button{type="submit" ,id = "#{video.id}" , class = "Download"}
+                | Download  
+        
+
