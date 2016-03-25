@@ -1,0 +1,17 @@
+
+
+  {{#each items}}
+  <div class="container-element">
+  	<img src= "{{image}}" />
+    <div class="container-description">
+    	{{title}}
+    	<a class="link-download"></a>
+    	<div class='error'></div>
+      <form method="get" action="/download" >
+      <input type="hidden" name="title" value="{{title}}">
+      <input type="hidden" name="id" value={{id.videoId}}>
+      <input type="submit"  class="Download" value="Download"/>   
+      </form>
+    </div>
+  </div>
+  {{/each}}

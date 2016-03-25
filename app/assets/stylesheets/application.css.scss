@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.search {
+	display: flex;
+   display: -webkit-flex;
+   flex-direction: column;
+   align-items:center;
+    
+  button{
+  	background: linear-gradient(#00ff7f, darken(#00ff7f, 2%));
+    color: white;
+     border-radius: 4px;
+     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+     font-size: 110%;
+     border:2px;
+  }
+  input[type="text"]{
+  	width: 200px ;
+  }
+}
+
+.border {
+  border-width:1px;
+  border-color: #d3d3d3;
+  border-style: solid;
+}
+
+.container_white {
+    @extend .border;
+    
+    background-color: white;
+  }
+
+.container-list {
+	@extend .column;
+}
+
+.container-element {
+    @extend .container_white ;
+    @extend .text-center;
+    @extend .col-md-7;
+    
+   input[type="submit"] {
+     
+     background: linear-gradient(#00ff7f, darken(#00ff7f, 2%));
+     color: white;
+     border-radius: 4px;
+     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+     font-size: 110%;
+     border:2px;
+   }
+   input[type="submit"]:hover {
+     background: linear-gradient(#00ff00, darken(#00ff00, 2%));
+   } 
+  
+  }
+
+  .column {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items:center;
+      
+  
+  }
+
+  .container-description {
+     @extend .column;
+     margin-top: 20px;
+  }
+
+  .error {
+    color:red;
+  }

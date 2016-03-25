@@ -1,0 +1,47 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  @extend .col-md-4;
+  margin: 0 auto;
+  
+  }
+
+.navbar-brand {
+  font-size: inherit;
+  }
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+
+main {
+  @extend .container;
+  background-color: #eee;
+  padding-bottom: 30px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }
