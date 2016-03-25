@@ -7,9 +7,11 @@
     	{{title}}
     	<a class="link-download"></a>
     	<div class='error'></div>
-      <button type="submit" id="{{id.videoId}}" class="Download">
-    	  Download
-    </button>   
+      <form method="get" action="/download" >
+      <input type="hidden" name="title" value="{{title}}">
+      <input type="hidden" name="id" value={{id.videoId}}>
+      <input type="submit"  class="Download" value="Download"/>   
+      </form>
     </div>
   </div>
   {{/each}}

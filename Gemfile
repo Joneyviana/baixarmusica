@@ -8,7 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'handlebars_assets'
-
+gem 'mechanize'
+gem 'haml'
 group :development, :test do
   gem 'byebug'
 end
@@ -26,6 +27,8 @@ gem 'capybara'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
+gem "typhoeus"
+gem 'excon'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

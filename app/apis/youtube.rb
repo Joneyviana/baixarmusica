@@ -4,15 +4,22 @@ class Youtube
     @client = Yourub::Client.new
   end
 
-  def search(query)
-    params = {q:query ,  maxResults:10, part:"snippet"}
+  def search_music(query)
+    params = {q:query}
+    search(params)
+  end
+  
+  def search(params)
+    params[:part] = "snippet"
+    params[:maxResults] = 10
     @search = Yourub::REST::Search.list(@client, params)
     save_result
-  end
-
+  end  
+  
   def items
     @search.data.items
   end
+  
   def save_result
     @videos = Array.new
     @channels = Array.new
@@ -21,6 +28,18 @@ class Youtube
       separate_results item
     end
   end
+  
+  def player_params(id)
+  { :id => id,
+  :part => 'player'
+  }
+  end          
+
+  def details(id)
+     request = Yourub::REST::Videos.list(@client,player_params(id))
+     request.data.items
+  end
+
   def separate_results(item) 
      if item.id.kind.include?("playlist")
        @playlists << YoutubeItem.new(item)
@@ -35,10 +54,12 @@ class Youtube
 end
 
 class YoutubeItem
-  attr_accessor :image , :id , :title
+  attr_accessor :image , :id , :title , :item
   def initialize(item)
+     @item = item
      @id = item.id
-     @image = item.snippet.thumbnails.medium.url
+     thumbnails= item.snippet.thumbnails 
+     @image = thumbnails.present? ? thumbnails.medium.url : "false"
      @title = item.snippet.title
   end
 end

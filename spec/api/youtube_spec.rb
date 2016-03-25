@@ -9,7 +9,7 @@ describe "search videos youtube" do
 
   before(:all) do
     @youtube = Youtube.new
-    @youtube.search("armandinho")
+    @youtube.search_music("kimi")
     end
 
   let(:videos){@youtube.videos}
@@ -20,18 +20,20 @@ describe "search videos youtube" do
 
   it "count of videos equal to 7" do
     expect(items.size).to eq(10)
+    
   end
   it "video has id" do
     test_list { |item| expect(item.id).to be }
   
   end
   it "video has title" do
-    test_list { |item| expect(first.title).to be }
+    test_list { |item| expect(item.title).to be }
   end
   it "video has url-image" do
-    test_list { |item| expect(first.image).to be }
+    test_list { |item| expect(item.image).to be_kind_of(String) ,"este é o conteudo #{item.item.snippet.public_methods}" }
   end
    it "video should will be converter to json" do
-      expect(videos.to_json).to eq(10)
+      expect(JSON.parse videos.to_json).to be_kind_of(Array)
   end
 end
+

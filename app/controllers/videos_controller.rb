@@ -4,31 +4,57 @@ class VideosController < ApplicationController
   end
 
   def search
-   get_youtube_api
-   @youtube_api.search(params[:q])
-   @videos = @youtube_api.videos
+   
+   youtube_api.search_music(params[:q])
+   @videos = youtube_api.videos
    render json: {"items":@videos}
   end
 
   def download 
     begin 
-      get_conversor_crawler
-      @conversor_crawler.converter_mp3(params[:id])
-      render text: @conversor_crawler.link
+      puts params[:title].to_s
+      headers["Content-disposition"] = "attachment; filename="+params[:title].to_s+".mp3"
+      conversor_crawler.converter_mp3(params[:id])
     rescue
       render text: "problema de conexão" , status: 503
     end
+     request = Typhoeus::Request.new(conversor_crawler.link, followlocation: true)
+      
+      self.response_body = Enumerator.new do |y|
+        request.on_body do |response|
+          y << response
+        end
+       request.run()
+    end
   end
 
+  def client
+    @client ||= Yourub::Client.new
+  end
+
+  def watch
+    @countries = client.countries
+    if request.post?
+       youtube_api.search(params)
+       @videos = youtube_api.videos
+      end
+  end
+
+  def details
+    @details = youtube_api.details(params[:id])
+  end
+
+
   private
-  attr_accessor :youtube_api , :youtube_conversor_crawler
   
-  def get_youtube_api
-     @youtube_api = Youtube.new unless @youtube_api.present?
+
+  
+  def youtube_api
+     @youtube_api ||= Youtube.new 
   end
   
-  def get_conversor_crawler
-     @conversor_crawler = YoutubeCrawler.new unless @conversor_crawler.present?
+  def conversor_crawler
+     @conversor_crawler ||= YoutubeCrawler.new 
   end
 
 end

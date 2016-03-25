@@ -56,7 +56,7 @@
     @extend .text-center;
     @extend .col-md-7;
     
-   button {
+   input[type="submit"] {
      
      background: linear-gradient(#00ff7f, darken(#00ff7f, 2%));
      color: white;
@@ -65,7 +65,7 @@
      font-size: 110%;
      border:2px;
    }
-   button:hover {
+   input[type="submit"]:hover {
      background: linear-gradient(#00ff00, darken(#00ff00, 2%));
    } 
   
