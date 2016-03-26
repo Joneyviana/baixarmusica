@@ -12,8 +12,12 @@ class VideosController < ApplicationController
 
   def download 
     begin 
-      puts params[:title].to_s
-      headers["Content-disposition"] = "attachment; filename="+params[:title].to_s+".mp3"
+      headers['Content-type'] = 'audio/mp3; charset=utf-8'
+      headers['Content-Transfer-Encoding'] = 'binary'
+      title = params[:title].to_s
+      title.delete!(" ")
+      puts title
+      headers["Content-disposition"] = "attachment; filename="+title+".mp3"
       conversor_crawler.converter_mp3(params[:id])
     rescue
       render text: "problema de conexão" , status: 503
