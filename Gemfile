@@ -27,7 +27,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem "typhoeus"
-gem 'excon'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
