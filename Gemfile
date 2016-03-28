@@ -9,7 +9,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'handlebars_assets'
 gem 'mechanize'
-gem 'haml'
 group :development, :test do
   gem 'byebug'
 end
@@ -20,7 +19,7 @@ end
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'poltergeist'
-gem 'phantomjs', :require => 'phantomjs/poltergeist'
+gem 'phantomjs'
 gem 'yourub'
 gem 'google-api-client', '~> 0.7.1'
 gem 'capybara'
