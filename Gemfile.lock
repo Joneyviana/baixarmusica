@@ -155,7 +155,6 @@ GEM
       rack
       rake (>= 0.8.1)
     pg (0.18.4)
-    phantomjs (2.1.1.0)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -311,7 +310,6 @@ DEPENDENCIES
   mechanize
   passenger
   pg
-  phantomjs
   poltergeist
   quiet_assets
   rails (= 4.2.5.1)
