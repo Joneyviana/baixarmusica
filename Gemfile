@@ -19,7 +19,7 @@ end
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'poltergeist'
-gem 'phantomjs', :require => 'phantomjs/poltergeist'
+
 gem 'yourub'
 gem 'google-api-client', '~> 0.7.1'
 gem 'capybara'
