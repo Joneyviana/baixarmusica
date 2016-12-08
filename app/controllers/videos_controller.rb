@@ -11,7 +11,6 @@ class VideosController < ApplicationController
   end
 
   def download 
-    begin 
       headers['Content-type'] = 'audio/mp3; charset=utf-8'
       headers['Content-Transfer-Encoding'] = 'binary'
       title = params[:title].to_s
@@ -19,11 +18,8 @@ class VideosController < ApplicationController
       puts title
       headers["Content-disposition"] = "attachment; filename="+title+".mp3"
       conversor_crawler.converter_mp3(params[:id])
-    rescue
       render text: "problema de conexão" , status: 503
-    end
-     request = Typhoeus::Request.new(conversor_crawler.link, followlocation: true)
-      
+      request = Typhoeus::Request.new(conversor_crawler.link, followlocation: true)
       self.response_body = Enumerator.new do |y|
         request.on_body do |response|
           y << response
