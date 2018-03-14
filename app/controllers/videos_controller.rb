@@ -13,19 +13,12 @@ class VideosController < ApplicationController
   def download 
       headers['Content-type'] = 'audio/mp3; charset=utf-8'
       headers['Content-Transfer-Encoding'] = 'binary'
-      title = params[:title].to_s
+      title = params[:title].to_s + ".webm"
       title.delete!(" ")
-      puts title
-      headers["Content-disposition"] = "attachment; filename="+title+".mp3"
-      conversor_crawler.converter_mp3(params[:id])
-      render text: "problema de conexão" , status: 503
-      request = Typhoeus::Request.new(conversor_crawler.link, followlocation: true)
-      self.response_body = Enumerator.new do |y|
-        request.on_body do |response|
-          y << response
-        end
-       request.run()
-    end
+      options = {username:"someone",password:"password1", format: "171",output:title}
+      YoutubeDL.download "https://www.youtube.com/watch?v="+params[:id], options
+      send_file(title, :filename => title)
+
   end
 
   def client

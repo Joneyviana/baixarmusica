@@ -4,14 +4,14 @@ class YoutubeCrawler < PoltergeistCrawler
 
   def initialize
     super
-    visit "http://www.youtube-mp3.org/pt"
+    visit "https://y2mate.com"
   end
 
   def converter_mp3(id)
   
-    fill_in "youtube-url", with: "https://www.youtube.com/watch?v="+id
-    click_on "Converter Video"
-    node = find_link("Download")
+    fill_in "query", with: "https://www.youtube.com/watch?v="+id
+    click_on "Start"
+    click_on('Link Text')
     @link = node[:href]
     
   end
