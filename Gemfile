@@ -8,7 +8,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'handlebars_assets'
 gem 'mechanize'
-gem 'pg', '~> 0.15'
+gem 'pg'
 gem 'youtube-dl.rb'
 group :development, :test do
   gem 'byebug'

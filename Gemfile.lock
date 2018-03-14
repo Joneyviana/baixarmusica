@@ -316,7 +316,7 @@ DEPENDENCIES
   launchy
   mechanize
   passenger
-  pg (~> 0.15)
+  pg
   poltergeist
   quiet_assets
   rails (= 4.2.5.1)
