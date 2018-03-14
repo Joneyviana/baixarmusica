@@ -17,7 +17,11 @@ class VideosController < ApplicationController
       title.delete!(" ")
       options = {username:"someone",password:"password1", format: "171",output:title}
       YoutubeDL.download "https://www.youtube.com/watch?v="+params[:id], options
-      send_file(title, :filename => title)
+      file = File.open(title, 'r+')
+      contents = file.read
+      file.close
+      send_data(contents, :filename => title)
+      File.delete(title) if File.exist?(title)
 
   end
 
